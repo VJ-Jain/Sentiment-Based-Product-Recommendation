@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sentiment based Product Recommendation System</title>
+</head>
+
+<body>
+    <h1 style='text-align:center;'>Sentiment based Product Recommendation System</h1>
+    <hr>
+    <br>
+    <form method='POST' action='/predict'>
+        <label class="label" for="input">Enter User Name</label>
+        <input class="input" type="text" id="input" name='user_name' required>
+        <input type='submit'>
+    </form>
+    <br>
+
+    {% if result_found %}
+    <hr>
+    <br>Top 5 Recommended Products for <b>{{user_name}}</b><br>
+    <p>{{product_recommendations|safe}}</p>
+    
+    {% elif user_name %}
+    <hr>
+    <div>Username <b>{{user_name}}</b> doesn't exist</div>
+    {% endif %}
+</body>
+
+</html>
